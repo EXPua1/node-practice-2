@@ -1,7 +1,7 @@
 import { response } from 'express';
-import * as s from '../services/products.js';
-
 import createHttpError from 'http-errors';
+
+import * as s from '../services/products.js';
 
 export const getProducts = async (req, res) => {
   const data = await s.getProducts();
@@ -16,8 +16,6 @@ export const getProducts = async (req, res) => {
 export const getProductsById = async (req, res) => {
   const { id } = req.params;
 
-
-
   const data = await s.getProductsById(id);
 
   if (!data) {
@@ -27,5 +25,15 @@ export const getProductsById = async (req, res) => {
     status: 200,
     message: `Succesfully found product by id:${id}`,
     responseData: data,
+  });
+};
+
+export const addProduct = async (req, res) => {
+  const product = await s.addProduct(req.body);
+
+  res.status(201).json({
+    status: 201,
+    message: 'Succesfully added product',
+    responseData: product,
   });
 };
