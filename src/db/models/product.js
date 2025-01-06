@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-import { PRODUCT_CATEGORIES } from '../constants/index.js';
+import { PRODUCT_CATEGORIES } from '../../constants/index.js';
 
 const productsSchema = new Schema(
   {

@@ -1,4 +1,4 @@
-import { ProductsCollection } from '../db/product.js';
+import { ProductsCollection } from '../db/models/product.js';
 
 export const getProducts = async (query = {}) => {
   const data = await ProductsCollection.find(query);
